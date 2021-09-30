@@ -1,3 +1,14 @@
-# ED-Practica_1
+# Estructuras de Datos 
+#2022-1
 
-Esto lo acompletaremos luego
+---
+
+### Samuel Jiménez Milke
+### Erick Iram García Velasco
+
+---
+
+## Descripción
+Práctica 1 de la materia Estructuras de Datos. 
+
+

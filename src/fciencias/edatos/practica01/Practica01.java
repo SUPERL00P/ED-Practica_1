@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
 * Práctica 1 del curso de Estructuras de Datos.
 * @author Samuel Jiménez Milke
-* @author 
+* @author Erick Iram García Velasco
 * @version 2.0 Septiembre 2021.
 * @since Laboratorio de Estructuras de Datos 2022-1.
 */
@@ -43,6 +43,34 @@ public class Practica01{
 		}
 
 		return result;
+	}
+
+	/** 
+	* Hace la mezcla de dos arreglos ordenados desde la primera posición hasta
+	* una posición límite
+	* @param array1 el primer arreglo a mezlar
+	* @param n el límite de mezcla del primer arreglo
+	* @param array2 el segundo arreglo a mezclar
+	* @param m el límite de mezcla del segundo arreglo.
+	* @return un arreglo ordenado de longitud m+n con la mezcla definida.
+	*/
+
+	public static int[] combinaArreglos(int[] array1, int n, int[] array2, int m){
+		if(n > array1.length || m > array2.length)
+			throw new RuntimeException("Límites no válidos");
+		
+		int[] arrayFinal = new int[n + m];
+
+		for(int i = 0, j = 0, k = 0; i <= n || j <= m; i++, j++, k++){
+			if(array1[i]<array2[j]){
+				arrFinal[k] = array1[i];
+				j--;
+			}else{
+				arrFinal[k] = array2[j];
+				i--;
+			}
+		}
+		return arrayFinal;
 	}
 
     /**
