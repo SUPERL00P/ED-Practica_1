@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
 * Práctica 1 del curso de Estructuras de Datos.
-* @author Samuel Jiménez Milke
+* @author Samuel Jiménez Milke - 318226837
 * @author 
 * @version 2.0 Septiembre 2021.
 * @since Laboratorio de Estructuras de Datos 2022-1.
@@ -83,6 +83,43 @@ public class Practica01{
 	}
 
 	/**
+    * Verifica si un tablero contiene los números desde 0 hasta n-1 en cada fila y cada columna.
+    * @param board el tablero de nxn que contiene elementos dentro del rango [0, n-1].
+    * @return true si el tablero contiene los números desde 0 hasta n-1 en cada fila y columna,
+	* false en otro caso.
+    */
+	public static boolean isValidBoardPlus(int [][] board){
+		int length = board.length;
+		// H -> Horizontal
+		// V -> Vertical
+		boolean [] filaH = new boolean[length];
+		boolean [] filaV = new boolean[length];
+		for (int i = 0; i < length ; i++) {
+			filaH = new boolean[length];
+			filaV = new boolean[length]; 
+			for (int j = 0; j < length ; j++ ) {
+
+				// Verifica sobre las filas
+				if(filaH[board[i][j]] == false){
+					filaH[board[i][j]] = true;
+				}
+				else{
+					return false;
+				}
+
+				// Verifica sobre las columnas
+				if(filaV[board[j][i]] == false){
+					filaV[board[j][i]] = true;
+				}
+				else{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	* Rota position cantidad de veces los elementos de un arreglo
 	* hacia el vecino izquierdo.
 	* @param num el arreglo de enteros a rotar.
@@ -98,28 +135,35 @@ public class Practica01{
 		}
 	}
 
+	/**
+	* Calcula el tiempo que se tarda  en ejecutarse y lo presenta en pantalla
+	* @param example es el ejemplo de arreglo o board que sera ejecutado por los algoritmos
+	* @param ejercicio es el numero de ejercicio, que nos indica los algoritmos a usar
+	*/
+	public static void calcularTiempo(Strin)
+
 	public static void main(String[] args) {
 
-		String directorio1 = "Examples/ArrayExamples/";
-		String directorio2 = "Examples/BoardExamples/";
+		String directorio1 = "./Examples/ArrayTests/";
+		String directorio2 = "./Examples/BoardTests/";
 
 		// EJEMPLOS DE ACTIVIDAD 1
-		System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
+		// System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
 
-		int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
-		int[] arrayA2 = ArrayReader.readArray(directorio1 + "ArrayA2.txt");
-		int[] resultA = mergeSortedArray(arrayA1, 3, arrayA2, 5);
-		System.out.println("Resultado A: "+Arrays.toString(resultA));
+		// int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
+		// int[] arrayA2 = ArrayReader.readArray(directorio1 + "ArrayA2.txt");
+		// int[] resultA = mergeSortedArray(arrayA1, 3, arrayA2, 5);
+		// System.out.println("Resultado A: "+Arrays.toString(resultA));
 
-		int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
-		int[] arrayB2 = ArrayReader.readArray(directorio1 + "ArrayB2.txt");
-		int[] resultB = mergeSortedArray(arrayB1, 5, arrayB2, 5);
-		System.out.println("Resultado B: "+Arrays.toString(resultB));
+		// int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
+		// int[] arrayB2 = ArrayReader.readArray(directorio1 + "ArrayB2.txt");
+		// int[] resultB = mergeSortedArray(arrayB1, 5, arrayB2, 5);
+		// System.out.println("Resultado B: "+Arrays.toString(resultB));
 
-		int[] arrayC1 = ArrayReader.readArray(directorio1 + "ArrayC1.txt");
-		int[] arrayC2 = ArrayReader.readArray(directorio1 + "ArrayC2.txt");
-		int[] resultC = mergeSortedArray(arrayC1, 4, arrayC2, 6);
-		System.out.println("Resultado C: "+Arrays.toString(resultC));
+		// int[] arrayC1 = ArrayReader.readArray(directorio1 + "ArrayC1.txt");
+		// int[] arrayC2 = ArrayReader.readArray(directorio1 + "ArrayC2.txt");
+		// int[] resultC = mergeSortedArray(arrayC1, 4, arrayC2, 6);
+		// System.out.println("Resultado C: "+Arrays.toString(resultC));
 
 
 
@@ -129,7 +173,7 @@ public class Practica01{
 		int[][] boardA = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
 		boolean boardResultA = isValidBoard(boardA);
 		System.out.println("El tablero A es válido: "+boardResultA);
-
+		
 		int[][] boardB = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
 		boolean boardResultB = isValidBoard(boardB);
 		System.out.println("El tablero B es válido: "+boardResultB);
@@ -142,18 +186,34 @@ public class Practica01{
 		boolean boardResultD = isValidBoard(boardD);
 		System.out.println("El tablero D es válido: "+boardResultD);
 
-
 		// EJEMPLOS DE ACTIVIDAD 3
-		System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
+		// System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
 
-		rotateArray(arrayA1, 5);
-		rotateArray(arrayB1, 0);
-		rotateArray(arrayC1, 6);
+		// rotateArray(arrayA1, 5);
+		// rotateArray(arrayB1, 0);
+		// rotateArray(arrayC1, 6);
 
-		System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
-		System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
-		System.out.println("Arreglo C1 rotado 6 veces: " + Arrays.toString(arrayC1));
+		// System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
+		// System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
+		// System.out.println("Arreglo C1 rotado 6 veces: " + Arrays.toString(arrayC1));
 
-		System.out.println("\n\nFIN DE EJEMPLOS\n");
+		// System.out.println("\n\nFIN DE EJEMPLOS\n");
+
+
+		//--------------------------------------------------------------------------------------
+		// Líneas de Código utilizadas para calcular los tiempos de ejecución de los algoritmos
+		// -- Ejemplo que será procesado por el algoritmo
+		// long inicio1 = System.currentTimeMillis();
+		// 	-- Algoritmo no eficiente
+        // long fin1 = System.currentTimeMillis();
+		// long inicio2 = System.currentTimeMillis();
+		// 	-- Algoritmo eficiente
+        // long fin2 = System.currentTimeMillis();
+		
+        // System.out.println("El algoritmo 1 se tardó: " + (fin1-inicio1) + " milisegundos");
+		// System.out.println("El algoritmo 2 se tardó: " + (fin2-inicio2) + " milisegundos");
+
+		// System.out.println("Según el algoritmo 1, El tablero A es válido: "+boardResultA);
+		// System.out.println("Según el algoritmo 2, El tablero A es válido: "+boardResultAPlus);
 	}
 }
