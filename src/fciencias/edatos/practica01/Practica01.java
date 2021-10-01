@@ -145,8 +145,9 @@ public class Practica01{
 
 	/**
 	* Calcula el tiempo de ejecución de los algoritmos correspondientes al ejercicio 2
-	* @param example es el ejemplo de arreglo o board que sera ejecutado por los algoritmos
-	* @param ejercicio es el numero de ejercicio, que nos indica los algoritmos a usar
+	* @param directorio dirección del directorio donde se encuentra el archivo .txt del board
+	* @param nombreBoard nombre del archivo .txt del board que se utilizara en la prueba.
+	* @param idBoard nombre identificativo del board que se utilizara en la prueba.
 	*/
 	public static void calcularTiempoEjercicio2(String directorio, String nombreBoard, String idBoard){
 		//	Inicializo el Board que será utilizado en la prueba
