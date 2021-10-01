@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
 * Práctica 1 del curso de Estructuras de Datos.
-* @author Samuel Jiménez Milke
-* @author 
+* @author Samuel Jiménez Milke - 318226837
+* @author Erick Iram García Velasco - 
 * @version 2.0 Septiembre 2021.
 * @since Laboratorio de Estructuras de Datos 2022-1.
 */
@@ -155,7 +155,7 @@ public class Practica01{
 	}
 
 	/**
-	* 	
+	* Calcula el tiempo de ejecución de los algoritmos correspondientes al ejercicio 2.
 	* @param directorio el directorio donde se encuentran los archivos .txt de las pruebas a realizar.
 	* @param nombreArreglo nombre del archivo .txt del arreglo que se utilizara en la prueba.
 	* @param idArreglo nombre identificativo del arreglo que se utilizara en la prueba.
@@ -169,7 +169,7 @@ public class Practica01{
 			rotateArray(array, position);
 		long fin1 = System.currentTimeMillis();
 		//	Presento en pantalla el arreglo rotado por el Algoritmo 1
-		System.out.println("Arreglo "+ idArreglo +" rotado "+position+" veces, según el Algoritmo 1: " + Arrays.toString(array));
+		//System.out.println("Arreglo "+ idArreglo +" rotado "+position+" veces, según el Algoritmo 1: " + Arrays.toString(array));
 		//	Como el arreglo fue modificado, lo inicializo de nuevo
 		array = ArrayReader.readArray(directorio + nombreArreglo);
 		//	Inicio la prueba de tiempo del algoritmo 2 (el que ya fue mejorado)
@@ -177,8 +177,9 @@ public class Practica01{
 			rotateArrayPlus(array, position);
 		long fin2 = System.currentTimeMillis();
 		//	Presento en pantalla el arreglo rotado por el Algoritmo 2
-		System.out.println("Arreglo "+ idArreglo +" rotado "+position+" veces, según el Algoritmo 2: " + Arrays.toString(array));
+		//System.out.println("Arreglo "+ idArreglo +" rotado "+position+" veces, según el Algoritmo 2: " + Arrays.toString(array));
 		//	Presento en pantalla los tiempos correspondientes a los algoritmos ejecutados
+		System.out.println("\n---------------------------------------------------");
 		System.out.println("El algoritmo 1 en el arreglo "+ idArreglo +" se tardó: " + (fin1-inicio1) + " milisegundos");
 		System.out.println("El algoritmo 2 en el arreglo "+ idArreglo +" se tardó: " + (fin2-inicio2) + " milisegundos");
 	}
