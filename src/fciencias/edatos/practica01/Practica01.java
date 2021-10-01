@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
 * Práctica 1 del curso de Estructuras de Datos.
-* @author Samuel Jiménez Milke
-* @author Erick Iram García Velasco
+* @author Samuel Jiménez Milke - 318226837
+* @author Erick Iram García Velasco - 
 * @version 2.0 Septiembre 2021.
 * @since Laboratorio de Estructuras de Datos 2022-1.
 */
@@ -111,6 +111,51 @@ public class Practica01{
 	}
 
 	/**
+    * Verifica si un tablero contiene los números desde 0 hasta n-1 en cada fila y cada columna.
+    * @param board el tablero de nxn que contiene elementos dentro del rango [0, n-1].
+    * @return true si el tablero contiene los números desde 0 hasta n-1 en cada fila y columna,
+	* false en otro caso.
+    */
+	public static boolean isValidBoardPlus(int [][] board){
+		int length = board.length;
+		// Creo unas listas que me ayudará a ver si existen
+			// repetidos en una fila o columna
+		boolean [] fila = new boolean[length];
+		boolean [] columna = new boolean[length];
+
+		for (int i = 0; i < length ; i++) {
+			
+			fila = new boolean[length];
+			columna = new boolean[length]; 
+
+			for (int j = 0; j < length ; j++ ) {
+				// Verifica sobre las filas si existen elementos repetidos,
+				// esto quiere decir, que ya aparescan en mi lista fila
+				if(fila[board[i][j]] == false){
+					// En caso de que el elemento aparesca por primera vez, 
+					// guardo en mi lista su aparición
+					fila[board[i][j]] = true;
+				}
+				else{
+					return false;
+				}
+
+				// Verifica sobre las columnas si existen elementos repetidos,
+				// esto quiere decir, que ya aparescan en mi lista columna
+				if(columna[board[j][i]] == false){
+					// En caso de que el elemento aparesca por primera vez, 
+					// guardo en mi lista su aparición
+					columna[board[j][i]] = true;
+				}
+				else{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	* Rota position cantidad de veces los elementos de un arreglo
 	* hacia el vecino izquierdo.
 	* @param num el arreglo de enteros a rotar.
@@ -126,62 +171,95 @@ public class Practica01{
 		}
 	}
 
+	/**
+	* Calcula el tiempo de ejecución de los algoritmos correspondientes al ejercicio 2
+	* @param directorio dirección del directorio donde se encuentra el archivo .txt del board
+	* @param nombreBoard nombre del archivo .txt del board que se utilizara en la prueba.
+	* @param idBoard nombre identificativo del board que se utilizara en la prueba.
+	*/
+	public static void calcularTiempoEjercicio2(String directorio, String nombreBoard, String idBoard){
+		//	Inicializo el Board que será utilizado en la prueba
+		int[][] board = ArrayReader.readMatrix(directorio + nombreBoard);
+		//	Inicio la prueba de tiempo del algoritmo 1  (el que aún NO se ha mejorado)
+		long inicio1 = System.currentTimeMillis();
+			boolean boardResult = isValidBoard(board);
+        long fin1 = System.currentTimeMillis();
+		//	Inicio la prueba de tiempo del algoritmo 2  (el que ya fue mejorado)
+		long inicio2 = System.currentTimeMillis();
+			boolean boardResultPlus = isValidBoardPlus(board);
+        long fin2 = System.currentTimeMillis();
+		//	Presento en pantalla los tiempos correspondientes a los algoritmos ejecutados
+		System.out.println("\n---------------------------------------------------\n");
+        System.out.println("El algoritmo 1 se tardó: " + (fin1-inicio1) + " milisegundos");
+		System.out.println("El algoritmo 2 se tardó: " + (fin2-inicio2) + " milisegundos");
+		//	Presento en pantalla los resultados a los que llegaron ambos algoritmos
+		System.out.println("\nSegún el algoritmo 1, El tablero "+ idBoard +" es válido: "+boardResult);
+		System.out.println("Según el algoritmo 2, El tablero "+ idBoard +" es válido: "+boardResultPlus);
+	}
+
 	public static void main(String[] args) {
 
-		String directorio1 = "Examples/ArrayExamples/";
-		String directorio2 = "Examples/BoardExamples/";
+		String directorio1 = "./Examples/ArrayTests/";
+		String directorio2 = "./Examples/BoardTests/";
 
 		// EJEMPLOS DE ACTIVIDAD 1
-		System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
+		// System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
 
-		int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
-		int[] arrayA2 = ArrayReader.readArray(directorio1 + "ArrayA2.txt");
-		int[] resultA = mergeSortedArray(arrayA1, 3, arrayA2, 5);
-		System.out.println("Resultado A: "+Arrays.toString(resultA));
+		// int[] arrayA1 = ArrayReader.readArray(directorio1 + "ArrayA1.txt");
+		// int[] arrayA2 = ArrayReader.readArray(directorio1 + "ArrayA2.txt");
+		// int[] resultA = mergeSortedArray(arrayA1, 3, arrayA2, 5);
+		// System.out.println("Resultado A: "+Arrays.toString(resultA));
 
-		int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
-		int[] arrayB2 = ArrayReader.readArray(directorio1 + "ArrayB2.txt");
-		int[] resultB = mergeSortedArray(arrayB1, 5, arrayB2, 5);
-		System.out.println("Resultado B: "+Arrays.toString(resultB));
+		// int[] arrayB1 = ArrayReader.readArray(directorio1 + "ArrayB1.txt");
+		// int[] arrayB2 = ArrayReader.readArray(directorio1 + "ArrayB2.txt");
+		// int[] resultB = mergeSortedArray(arrayB1, 5, arrayB2, 5);
+		// System.out.println("Resultado B: "+Arrays.toString(resultB));
 
-		int[] arrayC1 = ArrayReader.readArray(directorio1 + "ArrayC1.txt");
-		int[] arrayC2 = ArrayReader.readArray(directorio1 + "ArrayC2.txt");
-		int[] resultC = mergeSortedArray(arrayC1, 4, arrayC2, 6);
-		System.out.println("Resultado C: "+Arrays.toString(resultC));
+		// int[] arrayC1 = ArrayReader.readArray(directorio1 + "ArrayC1.txt");
+		// int[] arrayC2 = ArrayReader.readArray(directorio1 + "ArrayC2.txt");
+		// int[] resultC = mergeSortedArray(arrayC1, 4, arrayC2, 6);
+		// System.out.println("Resultado C: "+Arrays.toString(resultC));
 
-
+		
 
 		// EJEMPLOS DE ACTIVIDAD 2
 		System.out.println("\nEJEMPLOS DE ACTIVIDAD 2\n");
 
-		int[][] boardA = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
-		boolean boardResultA = isValidBoard(boardA);
-		System.out.println("El tablero A es válido: "+boardResultA);
+		// int[][] boardA = ArrayReader.readMatrix(directorio2 + "BoardA.txt");
+		// boolean boardResultA = isValidBoard(boardA);
+		// System.out.println("El tablero A es válido: "+boardResultA);
+		calcularTiempoEjercicio2(directorio2, "BoardA.txt", "A");
+		
+		// int[][] boardB = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
+		// boolean boardResultB = isValidBoard(boardB);
+		// System.out.println("El tablero B es válido: "+boardResultB);
+		calcularTiempoEjercicio2(directorio2, "BoardB.txt", "B");
 
-		int[][] boardB = ArrayReader.readMatrix(directorio2 + "BoardB.txt");
-		boolean boardResultB = isValidBoard(boardB);
-		System.out.println("El tablero B es válido: "+boardResultB);
+		// int[][] boardC = ArrayReader.readMatrix(directorio2 + "BoardC.txt");
+		// boolean boardResultC = isValidBoard(boardC);
+		// System.out.println("El tablero C es válido: "+boardResultC);
+		calcularTiempoEjercicio2(directorio2, "BoardC.txt", "C");
 
-		int[][] boardC = ArrayReader.readMatrix(directorio2 + "BoardC.txt");
-		boolean boardResultC = isValidBoard(boardC);
-		System.out.println("El tablero C es válido: "+boardResultC);
+		// int[][] boardD = ArrayReader.readMatrix(directorio2 + "BoardD.txt");
+		// boolean boardResultD = isValidBoard(boardD);
+		// System.out.println("El tablero D es válido: "+boardResultD);
+		calcularTiempoEjercicio2(directorio2, "BoardD.txt", "D");
 
-		int[][] boardD = ArrayReader.readMatrix(directorio2 + "BoardD.txt");
-		boolean boardResultD = isValidBoard(boardD);
-		System.out.println("El tablero D es válido: "+boardResultD);
+		calcularTiempoEjercicio2(directorio2, "BoardE.txt", "E");
 
+		calcularTiempoEjercicio2(directorio2, "BoardF.txt", "F");
 
 		// EJEMPLOS DE ACTIVIDAD 3
-		System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
+		// System.out.println("\nEJEMPLOS DE ACTIVIDAD 3\n");
 
-		rotateArray(arrayA1, 5);
-		rotateArray(arrayB1, 0);
-		rotateArray(arrayC1, 6);
+		// rotateArray(arrayA1, 5);
+		// rotateArray(arrayB1, 0);
+		// rotateArray(arrayC1, 6);
 
-		System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
-		System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
-		System.out.println("Arreglo C1 rotado 6 veces: " + Arrays.toString(arrayC1));
+		// System.out.println("Arreglo A1 rotado 5 veces: " + Arrays.toString(arrayA1));
+		// System.out.println("Arreglo B1 rotado 0 veces: " + Arrays.toString(arrayB1));
+		// System.out.println("Arreglo C1 rotado 6 veces: " + Arrays.toString(arrayC1));
 
-		System.out.println("\n\nFIN DE EJEMPLOS\n");
+		// System.out.println("\n\nFIN DE EJEMPLOS\n");
 	}
 }
