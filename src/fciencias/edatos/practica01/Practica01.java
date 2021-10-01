@@ -54,24 +54,23 @@ public class Practica01{
 	* @param m el límite de mezcla del segundo arreglo.
 	* @return un arreglo ordenado de longitud m+n con la mezcla definida.
 	*/
-
-	public static int[] combinaArreglos(int[] array1, int n, int[] array2, int m){
-		if(n > array1.length || m > array2.length)
-			throw new RuntimeException("Límites no válidos");
+	// public static int[] combinaArreglos(int[] array1, int n, int[] array2, int m){
+	// 	if(n > array1.length || m > array2.length)
+	// 		throw new RuntimeException("Límites no válidos");
 		
-		int[] arrayFinal = new int[n + m];
+	// 	int[] arrayFinal = new int[n + m];
 
-		for(int i = 0, j = 0, k = 0; i <= n || j <= m; i++, j++, k++){
-			if(array1[i]<array2[j]){
-				arrFinal[k] = array1[i];
-				j--;
-			}else{
-				arrFinal[k] = array2[j];
-				i--;
-			}
-		}
-		return arrayFinal;
-	}
+	// 	for(int i = 0, j = 0, k = 0; i <= n || j <= m; i++, j++, k++){
+	// 		if(array1[i]<array2[j]){
+	// 			arrFinal[k] = array1[i];
+	// 			j--;
+	// 		}else{
+	// 			arrFinal[k] = array2[j];
+	// 			i--;
+	// 		}
+	// 	}
+	// 	return arrayFinal;
+	// }
 
     /**
     * Verifica si un tablero contiene los números desde 0 hasta n-1 en cada fila y cada columna.
