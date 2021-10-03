@@ -284,8 +284,8 @@ public class Practica01{
 
 	public static void main(String[] args) {
 
-		String directorio1 = "./Examples/ArrayTests/";
-		String directorio2 = "./Examples/BoardTests/";
+		String directorio1 = "./Tests/ArrayTests/";
+		String directorio2 = "./Tests/BoardTests/";
 
 		// EJEMPLOS DE ACTIVIDAD 1
 		// System.out.println("\nEJEMPLOS DE ACTIVIDAD 1\n");
