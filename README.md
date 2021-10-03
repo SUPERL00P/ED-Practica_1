@@ -4,7 +4,7 @@
 ---
 ### Integrantes del Equipo
 #### Samuel Jiménez Milke - 318226837
-#### Erick Iram García Velasco 
+#### Erick Iram García Velasco - 318044309
 
 ---
 
